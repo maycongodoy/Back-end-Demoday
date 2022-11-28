@@ -22,6 +22,9 @@ module.exports = {
   async create(req, res) {
     try {
       const user = req.body; //recebe o do corpo da requisição
+      const verifyUser = await queryUser.findOne({email:email})
+      
+      if(verifyUser) return res.status(400).json({message: "usuário já cadastrado"});
       
       const userCreated = await queryUser.save(user); // cria e salva
       
@@ -34,7 +37,7 @@ module.exports = {
       }); //resposta do corpo body
 
     } catch (err) {
-      res.json({ error: true, message: "Email já cadatrado" }); //resposta do corpo body
+      res.status(500).json({ message:err.message }); //resposta do corpo body
     }
   },
 

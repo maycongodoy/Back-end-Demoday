@@ -29,13 +29,13 @@ module.exports = {
         
     },
 
-    async findOne (data, fullFilds = false){
+    async findOne (object, fullFilds = false){
        
         if (fullFilds){
-            const user = await User.findOne(data).select("nome sobrenome email password cep cidade estado UF ");
+            const user = await User.findOne(object).select("nome sobrenome email password cep cidade estado UF ");
             return user
         }else{
-            const user = await User.findOne(data);
+            const user = await User.findOne(object);
             return user
         }
     },
