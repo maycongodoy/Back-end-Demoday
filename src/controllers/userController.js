@@ -69,7 +69,7 @@ module.exports = {
     }
   },
   // funcao de update, atualização
-  async updade(req, res) {
+  async update(req, res) {
     try {
       const id = req.params.id; //requer os parametro da requisição pelo id
       const UserUpdated = await new queryUser.update(id); //iniciando a class user

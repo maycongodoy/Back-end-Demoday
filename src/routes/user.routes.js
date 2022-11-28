@@ -10,7 +10,7 @@ router.get('/', userController.find);//rota que exibe todos os registro/dados
 router.post('/', userController.create);//criar um registro com post
 router.get('/:id', userController.findById);//rota que pega registro pelo id
 router.delete('/:id', authMiddleware, userController.delete);//delete somente registro com id
-router.put('/:id', authMiddleware, userController.updade);//rotas de atualizacao é importa esta com id pois e atraves dele que iremos fazer a modifiçação
+router.put('/:id', authMiddleware, userController.update);//rotas de atualizacao é importa esta com id pois e atraves dele que iremos fazer a modifiçação
 
 router.post('/auth', userController.auth) //rota de autenticação
 
