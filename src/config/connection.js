@@ -10,9 +10,9 @@ const mongoose = require('mongoose');//gerencia conexao com banco de dados, cham
         console.log('conectou ao BANCO!!!');
     }).catch((err)=> console.log(err)) 
 }   
- */
+  */
 
-//*const dbUser = process.env.DB_USER
+const dbUser = process.env.DB_USER
 const dbPassword = process.env.DB_PASS
  
 

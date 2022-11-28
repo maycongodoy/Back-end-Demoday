@@ -15,8 +15,9 @@ const routerManager = require('../routes') // import da rotas
 
 
 
-app.use(cors()); //chamando o cors
 app.use(bodyParser.json()); //executa o bodyPaser para usar o json
+app.use(bodyParser.urlencoded({extended:false}))
+app.use(cors()); //chamando o cors
 app.use(morgan('dev'))//ambiente de desenvolvimento 
 app.use('/v1', routerManager); // rota geral de versao, vai ser usado depois do Barra
 

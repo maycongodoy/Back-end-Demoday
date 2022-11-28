@@ -22,8 +22,9 @@ module.exports = {
   async create(req, res) {
     try {
       const user = req.body; //recebe o do corpo da requisição
-      const verifyUser = await queryUser.findOne({email:email})
-      
+           
+      const verifyUser = await queryUser.findOne({email:user.email})
+
       if(verifyUser) return res.status(400).json({message: "usuário já cadastrado"});
       
       const userCreated = await queryUser.save(user); // cria e salva
@@ -75,7 +76,12 @@ module.exports = {
   async update(req, res) {
     try {
       const id = req.params.id; //requer os parametro da requisição pelo id
-      const UserUpdated = await new queryUser.update(id); //iniciando a class user
+      const dataToUpdate = req.body;
+
+      if(!dataToUpdate)return res.status(400).json({message: "nenhuma alteração foi feita"})
+
+      const UserUpdated = await queryUser.update(id, dataToUpdate); //iniciando a class user
+      
       res.json({ error: false, user: UserUpdated }); //resposta do corpo body
     } catch (err) {
       res.json({ error: true, message: err.message }); //resposta do corpo body

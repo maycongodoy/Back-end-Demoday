@@ -13,8 +13,10 @@ module.exports = {
         return saved
     },
 
-    async update (id){
-        const userUpdated = await new User().updateOne({ _id: id }); 
+    async update (id, data){
+        console.log(data, id);
+        await User.updateOne({_id: id}, data ); 
+        const userUpdated = await User.findById(id);
         return userUpdated
     },
 
