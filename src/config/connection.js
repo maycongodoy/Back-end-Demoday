@@ -19,7 +19,7 @@ const dbPassword = process.env.DB_PASS
 module.exports=()=>{
 
     mongoose.connect(
-        `mongodb+srv://adminTerashop:${dbPassword}@terashop.e2tb4kd.mongodb.net/?retryWrites=true&w=majority`
+        `mongodb+srv://adminTerashop:terashop@terashop.e2tb4kd.mongodb.net/?retryWrites=true&w=majority`
 
     ).then(()=>{
         console.log('conectou ao BANCO!!!');
